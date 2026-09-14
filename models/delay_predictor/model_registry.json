@@ -1,161 +1,155 @@
 {
     "future_delay_15_v1": {
         "version": "future_delay_15_v1",
-        "training_date": "2026-06-27 14:18:04",
+        "training_date": "2026-07-28 22:33:08",
         "dataset_version": "synthetic_datasets_v2",
-        "feature_count": 69,
+        "feature_count": 64,
         "evaluation_metrics": {
             "Mean Predictor": {
-                "MAE": 16.5706,
-                "RMSE": 20.2523,
-                "R2": -0.006,
-                "MAPE": 306.32
+                "MAE": 33.2714,
+                "RMSE": 38.9289,
+                "R2": -0.0028,
+                "MAPE": 632.24
             },
             "Linear Regression": {
-                "MAE": 1.5827,
-                "RMSE": 2.3304,
-                "R2": 0.9867,
-                "MAPE": 16.55
+                "MAE": 1.2297,
+                "RMSE": 1.7565,
+                "R2": 0.998,
+                "MAPE": 13.12
             },
             "Random Forest": {
-                "MAE": 2.3705,
-                "RMSE": 3.2463,
-                "R2": 0.9742,
-                "MAPE": 16.38
+                "MAE": 2.1694,
+                "RMSE": 2.8445,
+                "R2": 0.9946,
+                "MAPE": 21.49
             },
             "LightGBM": {
-                "MAE": 1.506,
-                "RMSE": 2.1782,
-                "R2": 0.9884,
-                "MAPE": 12.6
+                "MAE": 0.8135,
+                "RMSE": 1.1542,
+                "R2": 0.9991,
+                "MAPE": 6.13
             },
             "XGBoost": {
-                "MAE": 1.5839,
-                "RMSE": 2.3704,
-                "R2": 0.9862,
-                "MAPE": 12.77
+                "MAE": 0.5373,
+                "RMSE": 0.88,
+                "R2": 0.9995,
+                "MAPE": 3.58
             },
             "Ensemble (Selected)": {
-                "MAE": 1.4335,
-                "RMSE": 2.0729,
-                "R2": 0.9895,
-                "MAPE": 12.16
+                "MAE": 0.5066,
+                "RMSE": 0.8472,
+                "R2": 0.9995,
+                "MAPE": 3.55
             }
         },
         "hyperparameters": {
             "subsample": 1.0,
-            "num_leaves": 63,
-            "n_estimators": 150,
-            "min_child_samples": 50,
-            "max_depth": 4,
-            "learning_rate": 0.15,
-            "colsample_bytree": 0.9
+            "n_estimators": 100,
+            "max_depth": 10,
+            "learning_rate": 0.1,
+            "colsample_bytree": 1.0
         }
     },
     "future_delay_30_v1": {
         "version": "future_delay_30_v1",
-        "training_date": "2026-06-27 14:18:26",
+        "training_date": "2026-07-28 22:34:06",
         "dataset_version": "synthetic_datasets_v2",
-        "feature_count": 69,
+        "feature_count": 64,
         "evaluation_metrics": {
             "Mean Predictor": {
-                "MAE": 16.4695,
-                "RMSE": 20.4104,
-                "R2": -0.0082,
-                "MAPE": 261.58
+                "MAE": 34.2206,
+                "RMSE": 40.3526,
+                "R2": -0.0035,
+                "MAPE": 638.71
             },
             "Linear Regression": {
-                "MAE": 3.4141,
-                "RMSE": 4.8036,
-                "R2": 0.9442,
-                "MAPE": 30.59
+                "MAE": 2.8191,
+                "RMSE": 3.881,
+                "R2": 0.9907,
+                "MAPE": 27.37
             },
             "Random Forest": {
-                "MAE": 4.1405,
-                "RMSE": 5.7123,
-                "R2": 0.921,
-                "MAPE": 27.01
+                "MAE": 3.3519,
+                "RMSE": 4.7456,
+                "R2": 0.9861,
+                "MAPE": 23.87
             },
             "LightGBM": {
-                "MAE": 3.1927,
-                "RMSE": 4.554,
-                "R2": 0.9498,
-                "MAPE": 28.96
+                "MAE": 1.5504,
+                "RMSE": 2.2216,
+                "R2": 0.997,
+                "MAPE": 11.14
             },
             "XGBoost": {
-                "MAE": 3.3882,
-                "RMSE": 5.0658,
-                "R2": 0.9379,
-                "MAPE": 22.55
+                "MAE": 1.0917,
+                "RMSE": 1.7374,
+                "R2": 0.9981,
+                "MAPE": 7.02
             },
             "Ensemble (Selected)": {
-                "MAE": 3.1047,
-                "RMSE": 4.4687,
-                "R2": 0.9517,
-                "MAPE": 25.63
+                "MAE": 1.0605,
+                "RMSE": 1.7083,
+                "R2": 0.9982,
+                "MAPE": 6.89
             }
         },
         "hyperparameters": {
             "subsample": 1.0,
-            "num_leaves": 63,
-            "n_estimators": 150,
-            "min_child_samples": 50,
-            "max_depth": 4,
-            "learning_rate": 0.15,
-            "colsample_bytree": 0.9
+            "n_estimators": 100,
+            "max_depth": 10,
+            "learning_rate": 0.1,
+            "colsample_bytree": 1.0
         }
     },
     "future_delay_60_v1": {
         "version": "future_delay_60_v1",
-        "training_date": "2026-06-27 14:18:50",
+        "training_date": "2026-07-28 22:35:21",
         "dataset_version": "synthetic_datasets_v2",
-        "feature_count": 69,
+        "feature_count": 64,
         "evaluation_metrics": {
             "Mean Predictor": {
-                "MAE": 16.0961,
-                "RMSE": 20.4341,
-                "R2": -0.0116,
-                "MAPE": 227.9
+                "MAE": 35.6048,
+                "RMSE": 42.5549,
+                "R2": -0.0049,
+                "MAPE": 666.21
             },
             "Linear Regression": {
-                "MAE": 6.1306,
-                "RMSE": 8.6036,
-                "R2": 0.8207,
-                "MAPE": 46.07
+                "MAE": 5.7337,
+                "RMSE": 7.5332,
+                "R2": 0.9685,
+                "MAPE": 47.99
             },
             "Random Forest": {
-                "MAE": 7.3303,
-                "RMSE": 10.0742,
-                "R2": 0.7541,
-                "MAPE": 42.01
+                "MAE": 5.7149,
+                "RMSE": 8.0225,
+                "R2": 0.9643,
+                "MAPE": 29.32
             },
             "LightGBM": {
-                "MAE": 6.0166,
-                "RMSE": 8.8048,
-                "R2": 0.8122,
-                "MAPE": 43.36
+                "MAE": 2.6273,
+                "RMSE": 3.7848,
+                "R2": 0.9921,
+                "MAPE": 13.57
             },
             "XGBoost": {
-                "MAE": 6.6733,
-                "RMSE": 10.1361,
-                "R2": 0.7511,
-                "MAPE": 41.56
+                "MAE": 2.1737,
+                "RMSE": 3.3848,
+                "R2": 0.9936,
+                "MAPE": 10.88
             },
             "Ensemble (Selected)": {
-                "MAE": 5.8984,
-                "RMSE": 8.6309,
-                "R2": 0.8195,
-                "MAPE": 39.91
+                "MAE": 2.139,
+                "RMSE": 3.3247,
+                "R2": 0.9939,
+                "MAPE": 11.97
             }
         },
         "hyperparameters": {
             "subsample": 1.0,
-            "num_leaves": 63,
-            "n_estimators": 150,
-            "min_child_samples": 100,
+            "n_estimators": 100,
             "max_depth": 10,
-            "learning_rate": 0.05,
-            "colsample_bytree": 0.7
+            "learning_rate": 0.1,
+            "colsample_bytree": 1.0
         }
     }
 }

@@ -1,0 +1,221 @@
+{
+    "metadata": {
+        "experiment_id": "exp_final_1785084224",
+        "timestamp": "2026-07-26T16:43:44Z",
+        "random_seed": 42,
+        "qubo_size": 8,
+        "qaoa_depth": 2,
+        "shots": 1024,
+        "backend": "NumPyStatevector",
+        "noise_model": "CustomDepolarizingReadoutBitFlip",
+        "objective_weights": {
+            "delay": 0.4,
+            "congestion": 0.15,
+            "passenger": 0.15,
+            "risk": 0.15,
+            "energy": 0.05,
+            "operational_cost": 0.05,
+            "schedule_stability": 0.05
+        },
+        "software_versions": {
+            "qiskit": "2.5.0",
+            "numpy": "2.2.6",
+            "scipy": "1.15.3"
+        }
+    },
+    "noise_deconstruction": {
+        "ideal_qaoa": {
+            "energy": -5.4177,
+            "opt_gap": 1.29,
+            "approx_ratio": 0.9871,
+            "runtime_q": 1.215,
+            "runtime_c": 0.0,
+            "total_runtime": 1.215,
+            "class_evals": 0
+        },
+        "noisy_qaoa": {
+            "energy": -5.4177,
+            "opt_gap": 1.29,
+            "approx_ratio": 0.9871,
+            "runtime_q": 1.2781,
+            "runtime_c": 0.0,
+            "total_runtime": 1.2781,
+            "class_evals": 0
+        },
+        "noisy_qaoa_ls": {
+            "energy": -5.4882,
+            "opt_gap": 0.0,
+            "approx_ratio": 1.0,
+            "runtime_q": 1.2781,
+            "runtime_c": 0.001,
+            "total_runtime": 1.2791,
+            "class_evals": 6
+        },
+        "noisy_qaoa_sa": {
+            "energy": -5.4882,
+            "opt_gap": 0.0,
+            "approx_ratio": 1.0,
+            "runtime_q": 1.2781,
+            "runtime_c": 0.1065,
+            "total_runtime": 1.3846,
+            "class_evals": 100
+        },
+        "hybrid_qaoa": {
+            "energy": -5.4882,
+            "opt_gap": 0.0,
+            "approx_ratio": 1.0,
+            "runtime_q": 1.2781,
+            "runtime_c": 0.001,
+            "total_runtime": 1.2791,
+            "class_evals": 115
+        },
+        "greedy": {
+            "energy": -5.4882,
+            "opt_gap": 0.0,
+            "approx_ratio": 1.0,
+            "runtime_q": 0.0,
+            "runtime_c": 0.0,
+            "total_runtime": 0.0,
+            "class_evals": 6
+        },
+        "simulated_annealing": {
+            "energy": -5.4882,
+            "opt_gap": 0.0,
+            "approx_ratio": 1.0,
+            "runtime_q": 0.0,
+            "runtime_c": 0.1307,
+            "total_runtime": 0.1307,
+            "class_evals": 100
+        }
+    },
+    "noise_robustness": [
+        {
+            "noise_level": 0.0,
+            "raw_energy": -5.4177,
+            "raw_gap": 1.29,
+            "hybrid_energy": -5.4882,
+            "hybrid_gap": 0.0
+        },
+        {
+            "noise_level": 0.01,
+            "raw_energy": -5.4177,
+            "raw_gap": 1.29,
+            "hybrid_energy": -5.4882,
+            "hybrid_gap": 0.0
+        },
+        {
+            "noise_level": 0.05,
+            "raw_energy": -5.4177,
+            "raw_gap": 1.29,
+            "hybrid_energy": -5.4882,
+            "hybrid_gap": 0.0
+        },
+        {
+            "noise_level": 0.1,
+            "raw_energy": -5.4177,
+            "raw_gap": 1.29,
+            "hybrid_energy": -5.4882,
+            "hybrid_gap": 0.0
+        }
+    ],
+    "depth_sweeps": [
+        {
+            "p": 1,
+            "mean_energy": -5.4882,
+            "approx_ratio": 1.0,
+            "circuit_depth": 13,
+            "gate_count": 33,
+            "two_qubit_gates": 10,
+            "runtime_ms": 580.7
+        },
+        {
+            "p": 2,
+            "mean_energy": -5.4177,
+            "approx_ratio": 0.9871,
+            "circuit_depth": 24,
+            "gate_count": 60,
+            "two_qubit_gates": 20,
+            "runtime_ms": 1424.6
+        },
+        {
+            "p": 3,
+            "mean_energy": -5.4882,
+            "approx_ratio": 1.0,
+            "circuit_depth": 35,
+            "gate_count": 87,
+            "two_qubit_gates": 30,
+            "runtime_ms": 2193.0
+        },
+        {
+            "p": 4,
+            "mean_energy": -2.9524,
+            "approx_ratio": 0.5379,
+            "circuit_depth": 46,
+            "gate_count": 114,
+            "two_qubit_gates": 40,
+            "runtime_ms": 2800.1
+        }
+    ],
+    "statistical_evaluation": {
+        "exact": {
+            "mean_energy": -6.5227,
+            "median_energy": -6.3884,
+            "std_dev": 2.5506,
+            "ci": [
+                -8.1036,
+                -4.9418
+            ],
+            "best": -12.0394,
+            "worst": -3.2442,
+            "mean_runtime_ms": 0.3,
+            "success_rate": 100.0,
+            "opt_hit_rate": 100.0,
+            "opt_gap": 0.0
+        },
+        "greedy": {
+            "mean_energy": -6.4939,
+            "median_energy": -6.3884,
+            "std_dev": 2.5855,
+            "ci": [
+                -8.0964,
+                -4.8915
+            ],
+            "best": -12.0394,
+            "worst": -3.2442,
+            "mean_runtime_ms": 0.0,
+            "success_rate": 100.0,
+            "opt_hit_rate": 90.0,
+            "opt_gap": 0.81
+        },
+        "simulated_annealing": {
+            "mean_energy": -6.5227,
+            "median_energy": -6.3884,
+            "std_dev": 2.5506,
+            "ci": [
+                -8.1036,
+                -4.9418
+            ],
+            "best": -12.0394,
+            "worst": -3.2442,
+            "mean_runtime_ms": 116.9,
+            "success_rate": 100.0,
+            "opt_hit_rate": 100.0,
+            "opt_gap": 0.0
+        },
+        "hybrid_qaoa": {
+            "mean_energy": -6.5227,
+            "median_energy": -6.3883,
+            "std_dev": 2.5506,
+            "ci": [
+                -8.1036,
+                -4.9418
+            ],
+            "best": -12.0394,
+            "worst": -3.2442,
+            "mean_runtime_ms": 1716.32,
+            "success_rate": 100.0,
+            "opt_hit_rate": 0.0,
+            "opt_gap": 0.0
+        }
+    }
+}

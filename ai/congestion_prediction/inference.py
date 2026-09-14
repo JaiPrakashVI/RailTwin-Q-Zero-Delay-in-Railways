@@ -51,8 +51,15 @@ class HierarchicalInferenceEngine:
             self.station_predictor.load_model()
             self.track_predictor.load_model()
             self.network_predictor.load_model()
-            self.initialized = True
-            pred_logger.info("Hierarchical Inference Engine loaded successfully.")
+            self.initialized = (
+                self.station_predictor.initialized and 
+                self.track_predictor.initialized and 
+                self.network_predictor.initialized
+            )
+            if self.initialized:
+                pred_logger.info("Hierarchical Inference Engine loaded successfully.")
+            else:
+                pred_logger.warning("One or more congestion sub-models failed to initialize.")
         except Exception as e:
             pred_logger.error(f"Failed to initialize Hierarchical Inference Engine: {e}")
             self.initialized = False
@@ -83,9 +90,9 @@ class HierarchicalInferenceEngine:
         station_predictions = self.station_predictor.predict_congestion(df_st_eng)
         
         # Build map for fast stacked lookups
-        lookup_st_30 = {p["station_id"]: p["congestion_30"] for p in station_predictions}
-        lookup_st_15 = {p["station_id"]: p["congestion_15"] for p in station_predictions}
-        lookup_st_60 = {p["station_id"]: p["congestion_60"] for p in station_predictions}
+        lookup_st_30 = {p["station_id"]: p.get("congestion_30", 0.0) for p in station_predictions}
+        lookup_st_15 = {p["station_id"]: p.get("congestion_15", 0.0) for p in station_predictions}
+        lookup_st_60 = {p["station_id"]: p.get("congestion_60", 0.0) for p in station_predictions}
         
         # Append predicted station congestion directly into Level 2 dataframe inputs (Stacked learning)
         df_tr_eng["src_station_congestion"] = df_tr_eng["source_station_id"].map(lookup_st_30).fillna(0.0)
@@ -99,7 +106,7 @@ class HierarchicalInferenceEngine:
         # Build map for Level 3 lookups
         # In Level 3 network state features, we aggregate Level 1 and Level 2 predictions
         st_congs_30 = list(lookup_st_30.values())
-        tr_occ_30 = [p["occupancy_30"] for p in track_predictions]
+        tr_occ_30 = [p.get("occupancy_30", 0.0) for p in track_predictions]
 
         df_net_eng["pred_station_congestion_mean"] = np.mean(st_congs_30) if st_congs_30 else 0.0
         df_net_eng["pred_station_congestion_max"] = np.max(st_congs_30) if st_congs_30 else 0.0
@@ -124,29 +131,29 @@ class HierarchicalInferenceEngine:
             # Map station predictions
             for p in station_predictions:
                 f_state.stations[p["station_id"]] = {
-                    "congestion": p[f"congestion_{horizon}"],
-                    "confidence": p["confidence"],
-                    "prediction_interval": p["prediction_interval"]
+                    "congestion": p.get(f"congestion_{horizon}", 0.0),
+                    "confidence": p.get("confidence", 0.8),
+                    "prediction_interval": p.get("prediction_interval", [0.0, 0.0])
                 }
                 
             # Map track predictions
             for p in track_predictions:
                 f_state.tracks[p["track_id"]] = {
-                    "occupancy": p[f"occupancy_{horizon}"],
-                    "congestion": p["congestion_30"] if horizon == 30 else p[f"occupancy_{horizon}"],
-                    "confidence": p["confidence"],
-                    "prediction_interval": p["prediction_interval"]
+                    "occupancy": p.get(f"occupancy_{horizon}", 0.0),
+                    "congestion": p.get("congestion_30" if horizon == 30 else f"occupancy_{horizon}", 0.0),
+                    "confidence": p.get("confidence", 0.8),
+                    "prediction_interval": p.get("prediction_interval", [0.0, 0.0])
                 }
 
-            # Map network predictions
+            # Map network predictions defensively
             f_state.network = {
-                "network_congestion": network_predictions[f"network_congestion_{horizon}"],
-                "platform_utilization": network_predictions[f"platform_utilization_{horizon}"],
-                "track_utilization": network_predictions[f"track_utilization_{horizon}"],
-                "average_delay": network_predictions[f"average_delay_{horizon}"],
-                "stress_index": network_predictions[f"stress_index_{horizon}"],
-                "confidence": network_predictions["confidence"],
-                "prediction_interval": network_predictions["prediction_interval"]
+                "network_congestion": network_predictions.get(f"network_congestion_{horizon}", 0.0),
+                "platform_utilization": network_predictions.get(f"platform_utilization_{horizon}", 0.0),
+                "track_utilization": network_predictions.get(f"track_utilization_{horizon}", 0.0),
+                "average_delay": network_predictions.get(f"average_delay_{horizon}", 0.0),
+                "stress_index": network_predictions.get(f"stress_index_{horizon}", 0.0),
+                "confidence": network_predictions.get("confidence", 0.8),
+                "prediction_interval": network_predictions.get("prediction_interval", [0.0, 0.0])
             }
             
             futures[horizon] = f_state.to_dict()

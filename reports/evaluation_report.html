@@ -136,29 +136,29 @@
         <div class="card">
             <h2>Overview</h2>
             <p>This report documents the performance evaluation of the three separate regression predictors for delay forecasting at intervals of 15 minutes, 30 minutes, and 60 minutes. Models were trained on the synthetic dataset, comparing <strong>LightGBM</strong> and <strong>XGBoost</strong> classifiers, and automatically selecting the best performer.</p>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 15px;">Generated At: 2026-06-27 14:18:54</p>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 15px;">Generated At: 2026-07-28 22:35:24</p>
         </div>
 
         <!-- Cards -->
         
             <div class="card">
                 <h2>Target Model: <code>future_delay_15</code></h2>
-                <p class="subtitle">Best Classifier: <strong>LightGBM Regressor</strong></p>
+                <p class="subtitle">Best Classifier: <strong>XGBoost Regressor</strong></p>
                 <div class="metrics-grid">
                     <div class="metric-box">
-                        <div class="metric-val">1.5060</div>
+                        <div class="metric-val">0.5373</div>
                         <div class="metric-lbl">Mean Absolute Error (MAE)</div>
                     </div>
                     <div class="metric-box">
-                        <div class="metric-val">2.1782</div>
+                        <div class="metric-val">0.8800</div>
                         <div class="metric-lbl">Root Mean Squared Error (RMSE)</div>
                     </div>
                     <div class="metric-box">
-                        <div class="metric-val">0.9884</div>
+                        <div class="metric-val">0.9995</div>
                         <div class="metric-lbl">R-squared (R²)</div>
                     </div>
                     <div class="metric-box">
-                        <div class="metric-val">12.60%</div>
+                        <div class="metric-val">3.58%</div>
                         <div class="metric-lbl">Mean Absolute Percentage Error (MAPE)</div>
                     </div>
                 </div>
@@ -166,22 +166,22 @@
             
             <div class="card">
                 <h2>Target Model: <code>future_delay_30</code></h2>
-                <p class="subtitle">Best Classifier: <strong>LightGBM Regressor</strong></p>
+                <p class="subtitle">Best Classifier: <strong>XGBoost Regressor</strong></p>
                 <div class="metrics-grid">
                     <div class="metric-box">
-                        <div class="metric-val">3.1927</div>
+                        <div class="metric-val">1.0917</div>
                         <div class="metric-lbl">Mean Absolute Error (MAE)</div>
                     </div>
                     <div class="metric-box">
-                        <div class="metric-val">4.5540</div>
+                        <div class="metric-val">1.7374</div>
                         <div class="metric-lbl">Root Mean Squared Error (RMSE)</div>
                     </div>
                     <div class="metric-box">
-                        <div class="metric-val">0.9498</div>
+                        <div class="metric-val">0.9981</div>
                         <div class="metric-lbl">R-squared (R²)</div>
                     </div>
                     <div class="metric-box">
-                        <div class="metric-val">28.96%</div>
+                        <div class="metric-val">7.02%</div>
                         <div class="metric-lbl">Mean Absolute Percentage Error (MAPE)</div>
                     </div>
                 </div>
@@ -189,22 +189,22 @@
             
             <div class="card">
                 <h2>Target Model: <code>future_delay_60</code></h2>
-                <p class="subtitle">Best Classifier: <strong>LightGBM Regressor</strong></p>
+                <p class="subtitle">Best Classifier: <strong>XGBoost Regressor</strong></p>
                 <div class="metrics-grid">
                     <div class="metric-box">
-                        <div class="metric-val">6.0166</div>
+                        <div class="metric-val">2.1737</div>
                         <div class="metric-lbl">Mean Absolute Error (MAE)</div>
                     </div>
                     <div class="metric-box">
-                        <div class="metric-val">8.8048</div>
+                        <div class="metric-val">3.3848</div>
                         <div class="metric-lbl">Root Mean Squared Error (RMSE)</div>
                     </div>
                     <div class="metric-box">
-                        <div class="metric-val">0.8122</div>
+                        <div class="metric-val">0.9936</div>
                         <div class="metric-lbl">R-squared (R²)</div>
                     </div>
                     <div class="metric-box">
-                        <div class="metric-val">43.36%</div>
+                        <div class="metric-val">10.88%</div>
                         <div class="metric-lbl">Mean Absolute Percentage Error (MAPE)</div>
                     </div>
                 </div>
@@ -230,55 +230,55 @@
                         
                 <tr >
                     <td><strong>Mean Predictor Regressor</strong></td>
-                    <td>16.5706</td>
-                    <td>20.2523</td>
-                    <td>-0.0060</td>
-                    <td>306.32%</td>
+                    <td>33.2714</td>
+                    <td>38.9289</td>
+                    <td>-0.0028</td>
+                    <td>632.24%</td>
                     <td>Benchmark</td>
                 </tr>
                 
                 <tr >
                     <td><strong>Linear Regression Regressor</strong></td>
-                    <td>1.5827</td>
-                    <td>2.3304</td>
-                    <td>0.9867</td>
-                    <td>16.55%</td>
+                    <td>1.2297</td>
+                    <td>1.7565</td>
+                    <td>0.9980</td>
+                    <td>13.12%</td>
                     <td>Benchmark</td>
                 </tr>
                 
                 <tr >
                     <td><strong>Random Forest Regressor</strong></td>
-                    <td>2.3705</td>
-                    <td>3.2463</td>
-                    <td>0.9742</td>
-                    <td>16.38%</td>
+                    <td>2.1694</td>
+                    <td>2.8445</td>
+                    <td>0.9946</td>
+                    <td>21.49%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>LightGBM Regressor</strong></td>
+                    <td>0.8135</td>
+                    <td>1.1542</td>
+                    <td>0.9991</td>
+                    <td>6.13%</td>
                     <td>Benchmark</td>
                 </tr>
                 
                 <tr class='best-model-row'>
-                    <td><strong>LightGBM Regressor</strong></td>
-                    <td>1.5060</td>
-                    <td>2.1782</td>
-                    <td>0.9884</td>
-                    <td>12.60%</td>
+                    <td><strong>XGBoost Regressor</strong></td>
+                    <td>0.5373</td>
+                    <td>0.8800</td>
+                    <td>0.9995</td>
+                    <td>3.58%</td>
                     <td>🏆 Selected</td>
                 </tr>
                 
                 <tr >
-                    <td><strong>XGBoost Regressor</strong></td>
-                    <td>1.5839</td>
-                    <td>2.3704</td>
-                    <td>0.9862</td>
-                    <td>12.77%</td>
-                    <td>Benchmark</td>
-                </tr>
-                
-                <tr >
                     <td><strong>Ensemble (Selected) Regressor</strong></td>
-                    <td>1.4335</td>
-                    <td>2.0729</td>
-                    <td>0.9895</td>
-                    <td>12.16%</td>
+                    <td>0.5066</td>
+                    <td>0.8472</td>
+                    <td>0.9995</td>
+                    <td>3.55%</td>
                     <td>Benchmark</td>
                 </tr>
                 
@@ -303,55 +303,55 @@
                         
                 <tr >
                     <td><strong>Mean Predictor Regressor</strong></td>
-                    <td>16.4695</td>
-                    <td>20.4104</td>
-                    <td>-0.0082</td>
-                    <td>261.58%</td>
+                    <td>34.2206</td>
+                    <td>40.3526</td>
+                    <td>-0.0035</td>
+                    <td>638.71%</td>
                     <td>Benchmark</td>
                 </tr>
                 
                 <tr >
                     <td><strong>Linear Regression Regressor</strong></td>
-                    <td>3.4141</td>
-                    <td>4.8036</td>
-                    <td>0.9442</td>
-                    <td>30.59%</td>
+                    <td>2.8191</td>
+                    <td>3.8810</td>
+                    <td>0.9907</td>
+                    <td>27.37%</td>
                     <td>Benchmark</td>
                 </tr>
                 
                 <tr >
                     <td><strong>Random Forest Regressor</strong></td>
-                    <td>4.1405</td>
-                    <td>5.7123</td>
-                    <td>0.9210</td>
-                    <td>27.01%</td>
+                    <td>3.3519</td>
+                    <td>4.7456</td>
+                    <td>0.9861</td>
+                    <td>23.87%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>LightGBM Regressor</strong></td>
+                    <td>1.5504</td>
+                    <td>2.2216</td>
+                    <td>0.9970</td>
+                    <td>11.14%</td>
                     <td>Benchmark</td>
                 </tr>
                 
                 <tr class='best-model-row'>
-                    <td><strong>LightGBM Regressor</strong></td>
-                    <td>3.1927</td>
-                    <td>4.5540</td>
-                    <td>0.9498</td>
-                    <td>28.96%</td>
+                    <td><strong>XGBoost Regressor</strong></td>
+                    <td>1.0917</td>
+                    <td>1.7374</td>
+                    <td>0.9981</td>
+                    <td>7.02%</td>
                     <td>🏆 Selected</td>
                 </tr>
                 
                 <tr >
-                    <td><strong>XGBoost Regressor</strong></td>
-                    <td>3.3882</td>
-                    <td>5.0658</td>
-                    <td>0.9379</td>
-                    <td>22.55%</td>
-                    <td>Benchmark</td>
-                </tr>
-                
-                <tr >
                     <td><strong>Ensemble (Selected) Regressor</strong></td>
-                    <td>3.1047</td>
-                    <td>4.4687</td>
-                    <td>0.9517</td>
-                    <td>25.63%</td>
+                    <td>1.0605</td>
+                    <td>1.7083</td>
+                    <td>0.9982</td>
+                    <td>6.89%</td>
                     <td>Benchmark</td>
                 </tr>
                 
@@ -376,55 +376,55 @@
                         
                 <tr >
                     <td><strong>Mean Predictor Regressor</strong></td>
-                    <td>16.0961</td>
-                    <td>20.4341</td>
-                    <td>-0.0116</td>
-                    <td>227.90%</td>
+                    <td>35.6048</td>
+                    <td>42.5549</td>
+                    <td>-0.0049</td>
+                    <td>666.21%</td>
                     <td>Benchmark</td>
                 </tr>
                 
                 <tr >
                     <td><strong>Linear Regression Regressor</strong></td>
-                    <td>6.1306</td>
-                    <td>8.6036</td>
-                    <td>0.8207</td>
-                    <td>46.07%</td>
+                    <td>5.7337</td>
+                    <td>7.5332</td>
+                    <td>0.9685</td>
+                    <td>47.99%</td>
                     <td>Benchmark</td>
                 </tr>
                 
                 <tr >
                     <td><strong>Random Forest Regressor</strong></td>
-                    <td>7.3303</td>
-                    <td>10.0742</td>
-                    <td>0.7541</td>
-                    <td>42.01%</td>
+                    <td>5.7149</td>
+                    <td>8.0225</td>
+                    <td>0.9643</td>
+                    <td>29.32%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>LightGBM Regressor</strong></td>
+                    <td>2.6273</td>
+                    <td>3.7848</td>
+                    <td>0.9921</td>
+                    <td>13.57%</td>
                     <td>Benchmark</td>
                 </tr>
                 
                 <tr class='best-model-row'>
-                    <td><strong>LightGBM Regressor</strong></td>
-                    <td>6.0166</td>
-                    <td>8.8048</td>
-                    <td>0.8122</td>
-                    <td>43.36%</td>
+                    <td><strong>XGBoost Regressor</strong></td>
+                    <td>2.1737</td>
+                    <td>3.3848</td>
+                    <td>0.9936</td>
+                    <td>10.88%</td>
                     <td>🏆 Selected</td>
                 </tr>
                 
                 <tr >
-                    <td><strong>XGBoost Regressor</strong></td>
-                    <td>6.6733</td>
-                    <td>10.1361</td>
-                    <td>0.7511</td>
-                    <td>41.56%</td>
-                    <td>Benchmark</td>
-                </tr>
-                
-                <tr >
                     <td><strong>Ensemble (Selected) Regressor</strong></td>
-                    <td>5.8984</td>
-                    <td>8.6309</td>
-                    <td>0.8195</td>
-                    <td>39.91%</td>
+                    <td>2.1390</td>
+                    <td>3.3247</td>
+                    <td>0.9939</td>
+                    <td>11.97%</td>
                     <td>Benchmark</td>
                 </tr>
                 

@@ -1,5 +1,10 @@
 import os
+import sys
 import numpy as np
+
+# Ensure root project directory is in python path
+sys.path.append(os.getcwd())
+
 from ai.quantum_optimization.qubo_builder import QUBOBuilder
 from ai.quantum_optimization.qaoa_optimizer import QAOAOptimizer
 from ai.quantum_optimization.hybrid_optimizer import HybridOptimizer
@@ -156,3 +161,39 @@ def test_digital_twin_counterfactual_integration():
     assert "baseline_delay" in cf
     assert "optimized_delay" in cf
     assert "delay_reduction_percent" in cf
+
+def test_all():
+    print("====================================================")
+    print("       RUNNING AUTOMATED LAYER 5 ACCEPTANCE TESTS    ")
+    print("====================================================")
+    test_qubo_to_ising_conversion()
+    print(" -> test_qubo_to_ising_conversion: PASSED")
+    test_exhaustive_qubo_ising_energy_equivalence()
+    print(" -> test_exhaustive_qubo_ising_energy_equivalence: PASSED")
+    test_qubit_count_matches_qubo_variables()
+    print(" -> test_qubit_count_matches_qubo_variables: PASSED")
+    test_bitstring_length_matches_qubit_count()
+    print(" -> test_bitstring_length_matches_qubit_count: PASSED")
+    test_action_mapping_matches_bitstring()
+    print(" -> test_action_mapping_matches_bitstring: PASSED")
+    test_qiskit_endianness_is_consistent()
+    print(" -> test_qiskit_endianness_is_consistent: PASSED")
+    test_qiskit_qaoa_circuit_execution_and_metadata()
+    print(" -> test_qiskit_qaoa_circuit_execution_and_metadata: PASSED")
+    test_qaoa_solver_comparison_on_identical_qubo()
+    print(" -> test_qaoa_solver_comparison_on_identical_qubo: PASSED")
+    test_ablation_pipeline_and_separation()
+    print(" -> test_ablation_pipeline_and_separation: PASSED")
+    test_ibm_quantum_mode_honesty()
+    print(" -> test_ibm_quantum_mode_honesty: PASSED")
+    test_numpy_fallback_mode()
+    print(" -> test_numpy_fallback_mode: PASSED")
+    test_digital_twin_counterfactual_integration()
+    print(" -> test_digital_twin_counterfactual_integration: PASSED")
+    print("====================================================")
+    print("       ALL LAYER 5 ACCEPTANCE TESTS COMPLETED SUCCESSFULLY! ")
+    print("====================================================")
+
+if __name__ == "__main__":
+    test_all()
+

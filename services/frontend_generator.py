@@ -263,6 +263,9 @@ class FrontendGenerator:
     def generate_pages(cls, network, tick: int, sim_time_str: str, active_events: list, preds_delay: list, preds_congestion: dict, preds_propagation: dict, control_orchestrator, simulation_history: list = None) -> dict:
         os.makedirs("frontend", exist_ok=True)
         os.makedirs("frontend/reports", exist_ok=True)
+        os.makedirs("frontend/datasets", exist_ok=True)
+        os.makedirs("frontend/public/datasets", exist_ok=True)
+        os.makedirs("frontend/dist/datasets", exist_ok=True)
         os.makedirs("datasets", exist_ok=True)
 
         state = cls.generate_live_state(
@@ -271,14 +274,29 @@ class FrontendGenerator:
 
         state_json = json.dumps(state)
 
-        cls._safe_write("datasets/live_state.json", state_json)
-
+        for target_dir in ["datasets", "frontend/datasets", "frontend/public/datasets", "frontend/dist/datasets"]:
+            os.makedirs(target_dir, exist_ok=True)
+            cls._safe_write(os.path.join(target_dir, "live_state.json"), state_json)
 
         timeline_list = cls.get_timeline_records()
         timeline_json = json.dumps(timeline_list)
 
         history_list = (simulation_history + [state]) if simulation_history is not None else [state]
         playback_json = json.dumps(history_list)
+
+        for target_dir in ["datasets", "frontend/datasets", "frontend/public/datasets", "frontend/dist/datasets"]:
+            cls._safe_write(os.path.join(target_dir, "simulation_history.json"), playback_json)
+
+            # Mirror companion JSON files to public datasets directory if present
+            for fn in ["optimization_result.json", "propagation_graph.json", "passenger_impact.json"]:
+                src_p = os.path.join("datasets", fn)
+                if os.path.exists(src_p):
+                    try:
+                        with open(src_p, "r", encoding="utf-8") as sf:
+                            content = sf.read()
+                        cls._safe_write(os.path.join(target_dir, fn), content)
+                    except Exception:
+                        pass
 
         # -----------------------------------------------------------------
         # PAGE 1: operations.html (Exact Enterprise Control Center UI)
@@ -291,6 +309,9 @@ class FrontendGenerator:
     <title>RailTwin-Q | Railway Network Operations Center</title>
     <meta name="description" content="RailTwin-Q — AI + Quantum Railway Digital Twin Operations Center">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        window.RAILTWIN_LIVE_DATA = {state_json};
+    </script>
     <style>
         :root {{
             --sidebar-bg: #0b0f19;
